@@ -36,6 +36,11 @@ li:first-letter {
   margin-bottom: 20px;
 }
 
+.description {
+  font-weight: 400;
+  font-size: 17px;
+}
+
 .weather-temperature img {
   margin-right: 5px;
   float: left;

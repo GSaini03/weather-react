@@ -6,7 +6,8 @@ export default function Footer() {
   return (
     <div className="Footer">
       <span>
-        <a href="/">open-source code</a>, by Geetanjali Saini
+        <a href="https://github.com/GSaini03/weather-react">Open-source code</a>
+        , by Geetanjali Saini
       </span>
     </div>
   );
