@@ -1,17 +1,61 @@
-import React from "react";
-import SearchEngine from "./SearchEngine";
-import Overview from "./Overview";
+import React, { useState } from "react";
+import axios from "axios";
+
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="Weather">
-      <div className="weather-app-wrapper">
-        <div className="weather-app">
-          <SearchEngine />
-          <Overview />
-        </div>
+export default function Weather(props) {
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({});
+
+  function handleResponse(response) {
+    console.log(response.data);
+    setReady(true);
+    setWeatherData({
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      temperature: response.data.main.temp,
+      icon: response.data.weather[0].icon,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+    });
+  }
+
+  if (ready) {
+    return (
+      <div className="Weather">
+        <form>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Type a city"
+                className="form-control shadow-sm border border-success p-2 border-opacity-10 rounded-pill"
+                autoComplete="off"
+                autoFocus="on"
+              />
+            </div>
+
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="form control shadow-sm border border-success p-2 border-opacity-10 rounded-pill btn btn-info w-100"
+              />
+            </div>
+          </div>
+        </form>
+
+        <WeatherInfo />
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "cab5b6ee74c93775e95f76838552f1ed";
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q= ${props.defaultCity} &appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }

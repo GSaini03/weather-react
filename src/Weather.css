@@ -1,12 +1,75 @@
-.weather-app-wrapper {
+.Weather {
   max-width: 600px;
-  margin: 30px 0 15px auto;
-}
-
-.weather-app {
+  margin: 30px auto;
   padding: 30px;
   border: 1px solid #dadde1;
   border-radius: 10px;
   background: rgb(185, 224, 243) 11.1%;
   box-shadow: 7px 7px 28px 7px rgba(0, 0, 0, 0.2);
+}
+
+.Weather h1 {
+  color: #0f0f0f;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-top: 30px;
+}
+
+.Weather ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Weather li {
+  list-style: none;
+  color: #26262c;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+.Weather a {
+  text-decoration: none;
+}
+
+.Weather li:first-letter {
+  text-transform: capitalize;
+}
+
+img {
+  margin-right: 5px;
+  float: left;
+  height: 85px;
+  width: 85px;
+}
+.Weather .temperature {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.units {
+  position: relative;
+  top: -34px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active .hover {
+  text-decoration: none;
+}
+
+.celsius-link {
+  text-decoration: none;
+}
+
+.fahrenheit-link {
+  text-decoration: none;
 }

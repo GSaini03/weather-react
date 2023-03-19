@@ -1,14 +1,13 @@
 import React from "react";
 
-import "./Overview.css";
+import "./WeatherInfo.css";
 
-export default function Overview() {
+export default function WeatherInfo() {
   let weatherData = {
-    city: "Paris",
     date: "Friday 10:10",
     description: "Partly Cloudy",
     temperature: 19,
-    imgUrl: "https://cdn-icons-png.flaticon.com/512/5370/5370498.png",
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/5370/5370498.png",
     humidity: 80,
     wind: 20,
   };
@@ -16,11 +15,9 @@ export default function Overview() {
   return (
     <div>
       <div className="Overview">
-        <h1 className="city">{weatherData.city}</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
-          <li>
-            Last updated: <span className="date">{weatherData.date}</span>
-          </li>
+          <li>Local Time: {weatherData.date}</li>
         </ul>
         <br />
         <br />
@@ -28,14 +25,16 @@ export default function Overview() {
 
       <div className="row">
         <div className="col-6">
-          <div className="clearfix weather-temperature">
+          <div className="clearfix">
             <img
-              src={weatherData.imgUrl}
-              alt={weatherData.imgUrl}
+              src={weatherData.iconUrl}
+              alt={weatherData.description}
               className="icon"
             />
             <div className="float-left">
-              <strong className="temperature">{weatherData.temperature}</strong>
+              <span className="temperature">
+                {Math.round(weatherData.temperature)}
+              </span>
               <span className="units">
                 <a href="/" className="celsius-link" class="active">
                   °C{" "}
@@ -51,15 +50,12 @@ export default function Overview() {
         </div>
 
         <div className="col-6">
-          <ul className="WeatherCondition">
-            <li className="description">{weatherData.description}</li>
-            <li>
-              Humidity: <span className="humidity">{weatherData.humidity}</span>
-              %
+          <ul className="mx-5">
+            <li className="fw-normal fs-5.5">
+              <strong>{weatherData.description}</strong>
             </li>
-            <li>
-              Wind: <span className="wind">{weatherData.wind}</span> km/h
-            </li>
+            <li>Humidity: {weatherData.humidity}%</li>
+            <li>Wind: {weatherData.wind} km/h</li>
           </ul>
         </div>
       </div>
