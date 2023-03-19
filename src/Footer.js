@@ -7,9 +7,18 @@ export default function Footer() {
     <div className="Footer">
       <span>
         {" "}
-        Coded by Geetanjali Saini and is {""}
-        <a href="https://github.com/GSaini03/weather-react">
-          Open-sourced on GitHub
+        This project was coded by {""}
+        <a href="/" target="_blank" rel="noreferrer">
+          Geetanjali Saini {""}
+        </a>
+        and is {""}
+        <a
+          href="https://github.com/GSaini03/weather-react"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {""}
+          open-sourced on GitHub
         </a>
       </span>
     </div>
