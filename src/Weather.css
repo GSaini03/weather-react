@@ -37,40 +37,60 @@
   text-transform: capitalize;
 }
 
-canvas {
+,
+/* Weather canvas
+{
   margin-right: 10px;
   margin-top: 5px;
-  vertical-align: top;
   display: inline-block;
+  vertical-align: top;
 }
+
+
 .Weather .temperature {
   color: rgb(33, 33, 33);
   font-size: 65px;
   font-weight: 400;
-  line-height: 1;
   margin-right: 5px;
+  line-height: 64px;
+  float: left;
 }
 
-.units {
+.Weather .units {
   position: relative;
   top: -35px;
   font-size: 17px;
   text-decoration: none;
+} */
+
+
+.Weather canvas {
+  margin-top: 5px;
+  margin-right: 6px;
+  display: inline-block;
 }
 
-.active {
+.Weather .temperature {
+  font-weight: 400;
+  color: rgb(33, 33, 33);
+  font-size: 62px;
+  line-height: 64px;
+}
+
+.Weather .unit {
+  color: rgb(33, 33, 33);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.9;
+  position: relative;
+  top: -34px;
+}
+
+.unit .active {
   color: rgb(33, 33, 33);
   cursor: default;
 }
 
 .active .hover {
-  text-decoration: none;
-}
-
-.celsius-link {
-  text-decoration: none;
-}
-
-.fahrenheit-link {
   text-decoration: none;
 }
