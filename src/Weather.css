@@ -1,6 +1,6 @@
 .Weather {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 30px;
   border: 1px solid #dadde1;
   border-radius: 10px;
@@ -37,23 +37,24 @@
   text-transform: capitalize;
 }
 
-img {
-  margin-right: 5px;
-  float: left;
-  height: 85px;
-  width: 85px;
+canvas {
+  margin-right: 10px;
+  margin-top: 5px;
+  vertical-align: top;
+  display: inline-block;
 }
 .Weather .temperature {
   color: rgb(33, 33, 33);
-  font-size: 64px;
+  font-size: 65px;
   font-weight: 400;
   line-height: 1;
+  margin-right: 5px;
 }
 
 .units {
   position: relative;
-  top: -34px;
-  font-size: 16px;
+  top: -35px;
+  font-size: 17px;
   text-decoration: none;
 }
 
