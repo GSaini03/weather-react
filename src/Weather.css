@@ -1,10 +1,10 @@
 .Weather {
-  max-width: 600px;
+  max-width: 680px;
   margin: 20px auto;
   padding: 30px;
   border: 1px solid #dadde1;
   border-radius: 10px;
-  background: rgb(185, 224, 243) 11.1%;
+  background: rgba(185, 224, 243, 0.592) 11.1%;
   box-shadow: 7px 7px 28px 7px rgba(0, 0, 0, 0.2);
 }
 
@@ -37,7 +37,6 @@
   text-transform: capitalize;
 }
 
-,
 /* Weather canvas
 {
   margin-right: 10px;
@@ -62,7 +61,6 @@
   font-size: 17px;
   text-decoration: none;
 } */
-
 
 .Weather canvas {
   margin-right: 10px;

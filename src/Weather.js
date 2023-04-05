@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+
 import axios from "axios";
 
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  // const [ready, setReady] = useState(false);
+  // const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    //console.log(response.data);
-    setReady(true);
+    // console.log(response.data);
+    // setReady(true);
+
     setWeatherData({
+      ready: true,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -20,6 +26,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      coordinates: response.data.coord,
     });
   }
 
@@ -30,8 +37,9 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = "92da49e2f9d279a1bc35d15429ac6c6d";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q= ${city} &appid=${apiKey}&units=metric`;
+    const apiKey = "eb9542c65e739e0fb25ade97c749e2aa";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -39,7 +47,8 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  if (ready) {
+  // if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -65,6 +74,7 @@ export default function Weather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
