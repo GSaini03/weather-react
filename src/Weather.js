@@ -10,12 +10,10 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   const [city, setCity] = useState(props.defaultCity);
-  // const [currentLocation, setCurrentLocation] = useState(null);
 
   function handleResponse(response) {
     // console.log(response.data);
     // setReady(true);
-    // setCurrentLocation(response.data.current);
 
     setWeatherData({
       ready: true,
@@ -46,8 +44,6 @@ export default function Weather(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  // function currentLocation(params) {}
 
   // if (ready) {
   if (weatherData.ready) {
