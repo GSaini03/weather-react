@@ -1,27 +1,19 @@
 export default function FormattedDate(props) {
   console.log(props.date);
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
+    "January",
+    "Febuary",
+    "March",
+    "April",
     "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
     "Nov",
     "Dec",
   ];
@@ -37,13 +29,18 @@ export default function FormattedDate(props) {
   // if (minutes<10) minutes = `0${minutes}`;
 
   let todaysDate = props.date.getDate();
+  if (todaysDate < 10) {
+    todaysDate = `0${todaysDate}`;
+  }
+
   let month = months[props.date.getMonth()];
 
   let currentDate = `${todaysDate} ${month}`;
+
   return (
     <div>
       {" "}
-      {currentDate}, {day}
+      {day}, {currentDate}
       <br />
       Local Time: {hours}:{minutes}{" "}
     </div>

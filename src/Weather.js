@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
-
 import axios from "axios";
-
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -12,10 +10,12 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   const [city, setCity] = useState(props.defaultCity);
+  // const [currentLocation, setCurrentLocation] = useState(null);
 
   function handleResponse(response) {
     // console.log(response.data);
     // setReady(true);
+    // setCurrentLocation(response.data.current);
 
     setWeatherData({
       ready: true,
@@ -47,6 +47,8 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  // function currentLocation(params) {}
+
   // if (ready) {
   if (weatherData.ready) {
     return (
@@ -56,7 +58,7 @@ export default function Weather(props) {
             <div className="col-9">
               <input
                 type="search"
-                placeholder="Type a city"
+                placeholder="Enter City/Town..."
                 className="form-control shadow-sm border border-success p-2 border-opacity-10 rounded-pill"
                 autoFocus="on"
                 onChange={updateCity}
@@ -67,7 +69,7 @@ export default function Weather(props) {
               <input
                 type="submit"
                 value="Search"
-                className="form control shadow-sm border border-success p-2 border-opacity-10 rounded-pill btn btn-info w-100"
+                className="SearchButton form control shadow-sm border border-success p-2 border-opacity-10 rounded-pill btn btn-info w-145"
               />
             </div>
           </div>

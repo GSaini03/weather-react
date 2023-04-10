@@ -1,12 +1,13 @@
-.body {
-  background-image: url("BG2.jpeg");
+.container {
+  display: flexbox;
+  padding: 25px;
+}
+
+.App {
+  background-image: url("./images/bg15.avif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.App footer {
-  margin-top: 5px;
-  font-size: 16px;
-  color: #332f2f;
-  font-weight: 300;
+  height: 1000px;
+  color: #d46503;
 }
